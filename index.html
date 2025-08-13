@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REGNX - Profile</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/lib/tailwindcss@4.js"></script>
+  <script src="./js/lib/alpinejs@3.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css">
+
+  <script src="./js/index.js"></script>
+  <script src="./js/cnblogs.js"></script>
+</head>
+
+<body class="h-screen bg-black text-white flex items-center justify-center">
+  <main class="w-[350px] p-[10px] flex flex-col items-center justify-center gap-5">
+    <!-- profile -->
+    <div id="profile" class="select-none flex flex-col gap-3">
+      <div id="avatar" class="flex justify-center">
+        <img class="w-30 h-30 rounded-full" src="./static/Avatar.jpg" alt="">
+      </div>
+      <div id="describe">
+        <h3 class="text-center text-3xl font-[dune-rise]">Regnx</h3>
+        <p>a Arch Linux <mark class="text-[#747bff] bg-[#1A0430] rounded-sm px-2">EOL</mark> User.</p>
+      </div>
+    </div>
+
+    <!-- media -->
+    <div id="media">
+      <ul class="flex justify-center w-full gap-3">
+        <li class="text-black bg-white">
+          <a href="https://github.com/Regniox" target="_blank"><i class="ri-github-fill"></i></a>
+        </li>
+        <li class="text-black bg-white">
+          <a href="https://x.com/Shazengchao" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+        </li>
+        <li class="text-white bg-[#FB7299] ">
+          <a href="https://space.bilibili.com/290864547" target="_blank"><i class="ri-bilibili-fill"></i></a>
+        </li>
+        <li class="text-white bg-[#07C160]">
+          <a onclick="wechat()" href="javascript:void(0)"><i class="ri-wechat-2-fill"></i></a>
+        </li>
+        <li class="text-white bg-[#12B7F5]">
+          <a onclick="qq()" href="javascript:void(0)"><i class="ri-qq-fill"></i></i></a>
+        </li>
+      </ul>
+    </div>
+    <!-- cnblogs posts -->
+    <div id="cnblogs" x-data="cnblogs" x-init="init">
+      <template x-if="loading">
+        <div>Loading Blogs...</div>
+      </template>
+
+      <template x-if="error">
+        <div class="text-red-400" x-text="error"></div>
+      </template>
+
+      <template x-if="!loading && !error && blogs.length > 0">
+        <div class="flex flex-col gap-3">
+          <template x-for="blog in blogs">
+            <div class="flex flex-col gap-3 p-3 bg-[rgba(255,255,255,0.1)] rounded-lg">
+              <h3 class="text-lg" x-text="blog.title"></h3>
+              <div class="flex justify-between align-center">
+                <span class="text-slate-400/50 text-sm" x-text="blog.published"></span>
+                <a class="transition delay-150 duration-300 ease-linear hover:-translate-y-1 hover:scale-110"
+                  x-bind:href="blog.link" target="_blank">Read Post</a>
+              </div>
+            </div>
+          </template>
+        </div>
+
+      </template>
+
+      <template x-if="!loading && !error && blogs.length === 0">
+        <div class="text-purple-500">Not Found Blogs</div>
+      </template>
+    </div>
+  </main>
+</body>
+
+</html>

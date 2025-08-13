@@ -11,7 +11,7 @@ function cnblogs() {
     async getBlogs() {
       try {
         this.loading = true;
-        const res = await fetch('http://api.regnx.cc/cnblogs_posts/?u=786218&quantity=5');
+        const res = await fetch('https://api.regnx.cc/cnblogs_posts/?u=786218&quantity=5');
         const rawData = await res.json();
         
         this.blogs = rawData.map(item => ({

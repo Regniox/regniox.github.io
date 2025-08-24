@@ -1,14 +1,33 @@
 @import url("https://fontsapi.zeoseven.com/3/main/result.css");
 
 @font-face {
-    font-family: "dune-rise";
-    src: url("https://fontsapi.zeoseven.com/640/main.woff2") format("woff2"),
-        url("https://fontsapi-storage.zeoseven.com/640/main.woff2") format("woff2");
-    font-display: swap;
+  font-family: "dune-rise";
+  src: url("https://fontsapi.zeoseven.com/640/main.woff2") format("woff2"),
+    url("https://fontsapi-storage.zeoseven.com/640/main.woff2") format("woff2");
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'iconfont';
+  /* Project id 5005858 */
+  src: 
+    url('//at.alicdn.com/t/c/font_5005858_qzwzbpdespo.woff2?t=1756022619215') format('woff2'),
+    url('//at.alicdn.com/t/c/font_5005858_qzwzbpdespo.woff?t=1756022619215') format('woff'),
+    url('//at.alicdn.com/t/c/font_5005858_qzwzbpdespo.ttf?t=1756022619215') format('truetype');
+}
+
 body {
   font-family: "undefined";
   font-weight: normal;
+  background-color: #000;
+  color: #fff;
+}
+
+mark {
+  color: #747bff;
+  background-color: #1A0430;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
 #media ul li {
